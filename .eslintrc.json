@@ -8,6 +8,7 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "no-console": "error"
+    "no-console": "error",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   }
 }
