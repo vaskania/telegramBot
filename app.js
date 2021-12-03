@@ -1,8 +1,15 @@
+require('dotenv').config();
+
+const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = '5026637253:AAEI5tlJjTuk7f0ZugyQJnWl14VbmTnarek';
+const options = {
+  polling: true,
+};
+const bot = new TelegramBot(TOKEN, options);
 
-const bot = new TelegramBot(token, { polling: true });
-
-// eslint-disable-next-line no-console
-console.log(bot);
+// Matches /echo [whatever]
+bot.onText(/\/echo (.+)/, (msg, match) => {
+  const resp = match[1];
+  bot.sendMessage(msg.chat.id, resp);
+});
