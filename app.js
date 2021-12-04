@@ -7,7 +7,9 @@ const bot = new TelegramBot(TOKEN, {
   polling: true,
 });
 
-const links = 'https://git.foxminded.com.ua/foxstudent100710\nhttps://github.com/vaskania';
+const links = `<a href="https://github.com/vaskania">Github</a>
+<a href="https://www.linkedin.com/in/vasili-nikabadze-614b00139/">LinkedIn</a>
+<a href="https://git.foxminded.com.ua/foxstudent100710">GitLab</a>`;
 
 bot.on('message', (msg) => {
   const text = msg.text.toLocaleLowerCase().trim();
